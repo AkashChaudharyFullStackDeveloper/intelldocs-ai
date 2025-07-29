@@ -1,0 +1,43 @@
+# Node
+node_modules/
+.env
+.env.*
+dist/
+build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+ENV/
+env/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Next.js
+.next/
+
+# Coverage
+coverage/
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Large files
+frontend/nextjs/node_modules/
+backend/node/node_modules/
+
+# Ignore screenshots and uploads (optional)
+frontend/nextjs/screenshots/
+uploads/
