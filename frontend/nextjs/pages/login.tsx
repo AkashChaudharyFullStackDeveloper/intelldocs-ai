@@ -1,10 +1,18 @@
+
+// Login page for user authentication
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
+
+/**
+ * Login page allows users to authenticate and stores JWT token in localStorage.
+ * Redirects to home page on successful login.
+ */
 export default function Login() {
   const [loginData, setLoginData] = useState({ username: '', password: '' });
   const router = useRouter();
 
+  // Handle user login
   const handleLogin = async () => {
     const res = await fetch('http://localhost:4000/api/users/login', {
       method: 'POST',

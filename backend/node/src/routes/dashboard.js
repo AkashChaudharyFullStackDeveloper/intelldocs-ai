@@ -1,8 +1,14 @@
+
+// Routes for dashboard analytics endpoints
 const express = require('express');
 const router = express.Router();
 const Document = require('../models/Document');
 
-// Simple analytics endpoint
+
+/**
+ * Analytics endpoint for dashboard.
+ * Returns total, pending, and approved document counts.
+ */
 router.get('/analytics', async (req, res) => {
   const totalDocs = await Document.countDocuments();
   const pending = await Document.countDocuments({ status: 'pending' });

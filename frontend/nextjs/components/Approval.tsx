@@ -1,11 +1,18 @@
+
+// Approval component for approving or rejecting a document
 import { useState } from 'react';
 
+
+/**
+ * Approval allows a user to approve or reject a document with an optional comment.
+ * Calls backend API to update approval status.
+ */
 export default function Approval({ docId, onApproved }: { docId: string, onApproved: () => void }) {
   const [status, setStatus] = useState('pending');
   const [comment, setComment] = useState('');
 
+  // Approve the document
   const handleApprove = async () => {
-    // Call backend to approve
     await fetch('http://localhost:4000/api/approvals/update', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -15,6 +22,7 @@ export default function Approval({ docId, onApproved }: { docId: string, onAppro
     onApproved();
   };
 
+  // Reject the document
   const handleReject = async () => {
     await fetch('http://localhost:4000/api/approvals/update', {
       method: 'POST',

@@ -1,3 +1,5 @@
+
+// Home page for document upload, login, and dashboard
 import { useState } from 'react';
 import Dashboard from '../components/Dashboard';
 import Approval from '../components/Approval';
@@ -6,6 +8,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { setAuth, logout } from '../store/slices/authSlice';
 
+/**
+ * Home page allows users to login, upload documents, and view analytics.
+ * Handles authentication, file upload, and displays dashboard/notifications.
+ */
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
   const [result, setResult] = useState<any>(null);
@@ -14,6 +20,7 @@ export default function Home() {
   const token = useSelector((state: RootState) => state.auth.token);
   const role = useSelector((state: RootState) => state.auth.role);
 
+  // Handle user login
   const handleLogin = async () => {
     try {
       const res = await fetch('http://localhost:4000/api/users/login', {
@@ -32,6 +39,7 @@ export default function Home() {
     }
   };
 
+  // Handle document upload
   const handleUpload = async () => {
     if (!file || !token) return;
     try {

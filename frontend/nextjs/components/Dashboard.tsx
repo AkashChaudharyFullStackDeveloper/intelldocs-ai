@@ -1,8 +1,16 @@
+
+// Dashboard component for displaying document analytics
 import { useEffect, useState } from 'react';
 
+
+/**
+ * Dashboard fetches analytics data from the backend and displays document stats.
+ * Shows total, pending, and approved document counts.
+ */
 export default function Dashboard() {
   const [analytics, setAnalytics] = useState<any>(null);
 
+  // Fetch analytics data on component mount
   useEffect(() => {
     fetch('http://localhost:4000/api/dashboard/analytics')
       .then(res => res.json())
